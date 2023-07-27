@@ -1,0 +1,95 @@
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0; /* Remove margin to take full width */
+  padding-top: 0px; /* Set padding-top instead of margin-top to avoid overlap with the navbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px;
+  z-index: 0;
+  background-color: #e9ecea;
+} 
+
+
+/* Other styles remain unchanged */
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Use space-between to create a gap between items */
+  margin-top: 50px;
+  position: sticky;
+  top: 50px;
+  z-index: 1;
+}
+.card{
+    width:300px;
+    height:400px;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px;
+    transition: box-shadow 0.3s; /* Adding a smooth transition effect for the hover */
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px #142c64;
+    border: #142c64; /* Your hover effect style (e.g., box-shadow) */
+  }
+/* Product.css */
+.card-body{
+    padding-left: 10px; /* Adjust this value to set the desired space */
+  }
+  
+
+.product-image
+{
+    width:100%;
+    max-width:300px;
+    min-height: 200px;
+    display: block;
+    object-fit: cover;
+}
+.product-name {
+    font-weight: bold;
+    font-size: 20px;
+   
+    margin: 10px 0px;
+  }
+  
+  .product-price {
+    margin: 10px 0px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #007bff; /* Set the color to a desired price color, e.g., blue */
+  }
+  
+.product-add-button
+{
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 18px;
+    border: none;
+    outline:none;
+    background-color: black;
+    color: white;
+    width:100%;
+    height: 40px;
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 15px auto;
+}
+.product-add-button:hover
+{
+    background-color: brown;
+}
+.product-add-button:active
+{
+    transform: translateY(2px);
+}
