@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import './Signup.css';
+import './Signup.css'; // Import the Signup.css file
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isGuest, setIsGuest] = useState(false);
   const history = useHistory();
   const location = useLocation();
 
@@ -16,77 +15,63 @@ const Signup = () => {
       return;
     }
 
-    if (isGuest) {
-      // Signup as guest
-      alert('Signed up as a guest!');
-      history.push('/checkout'); // Move to the Checkout page for guests
-    } else {
-      // Signup as a registered user
-      // You can implement your authentication logic here
-      // For simplicity, we'll just store the name, email, and password in local storage
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
+    // Check if the user is already registered based on email and password
+    const registeredEmail = localStorage.getItem('email');
+    const registeredPassword = localStorage.getItem('password');
 
-      // Retrieve cart items and total price from location state
-      const { cartItems, totalPrice } = location.state || {};
-
-      alert('Signed up as a registered user!');
+    if (registeredEmail === email && registeredPassword === password) {
+      // Redirect to the checkout page passing the necessary information
+      alert('Logged in successfully.');
       history.push({
         pathname: '/checkout',
         state: {
-          cartItems,
-          totalPrice,
-          name, // Pass the name here
-          email, // Pass the email here
+          cartItems: location.state.cartItems,
+          totalPrice: location.state.totalPrice,
+          email,
+          name,
         },
-      }); // Move to the Checkout page passing cart items, total price, name, and email as state
+      });
+    } else {
+      window.confirm('Please check the entered email or password. If you are a new user, please proceed to register.');
+
+      
     }
   };
 
   return (
-    <div className="signup-container d-flex justify-content-center align-items-center">
-      <div className="card">
-        <div className="card-body">
-          <h2 className="text-center mb-4">Signup</h2>
+    <div className="signup-container">
+      <div className="signup-card">
+        <div className="signup-card-body">
+          <h2 className="signup-card-title">Login</h2>
           <div className="form-group">
-            <label>Name:</label>
+            <label className="signup-label">Name:</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control signup-input"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Email:</label>
+            <label className="signup-label">Email:</label>
             <input
               type="email"
-              className="form-control"
+              className="form-control signup-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Password:</label>
+            <label className="signup-label">Password:</label>
             <input
               type="password"
-              className="form-control"
+              className="form-control signup-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              checked={isGuest}
-              onChange={(e) => setIsGuest(e.target.checked)}
-            />
-            <label className="form-check-label">Sign up as a guest</label>
-          </div>
-          <button className="btn btn-primary mt-3" onClick={handleSignup}>
-            Sign Up
+          <button className="signup-button" onClick={handleSignup}>
+            Signup
           </button>
         </div>
       </div>

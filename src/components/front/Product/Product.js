@@ -6,13 +6,16 @@ const Product = ({ productItems, handleAddProduct, handleAddProduct1 }) => {
     display: "flex",
     flexWrap: "wrap",
     position: "sticky",
-    
     zIndex: "0",
     paddingBottom: "20px",
   };
 
   const productItemStyle = {
     padding: "20px",
+  };
+
+  const buttonStyle = {
+    marginRight: "3px",
   };
 
   return (
@@ -28,19 +31,20 @@ const Product = ({ productItems, handleAddProduct, handleAddProduct1 }) => {
             <div className="card-body">
               <h1 className="product-name">{productItem.name}</h1>
               <div className="product-price">₹{productItem.price}</div>
-              <button 
-                className="btn btn-success"
-                onClick={() => handleAddProduct(productItem)}
-              >
-                Add to cart
-              </button>
               <button
-                className="btn btn-primary"
-                onClick={() => handleAddProduct1(productItem)}
-                style={{ marginLeft: "3px" }}
-              >
-                Add to wishlist
-              </button>
+  className="btn product-button black-button" // Apply both classes
+  onClick={() => handleAddProduct(productItem)}
+  style={buttonStyle}
+>
+  Add to cart
+</button>
+<button
+  className="btn product-button black-button1" // Apply both classes
+  onClick={() => handleAddProduct1(productItem)}
+  style={buttonStyle}
+>
+  Add to wishlist
+</button>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Header = (cartItems) =>{
         <header className="header">
         <div>
             <h1>
-                <Link to="/signup" className="logo">Eshop
+                <Link to="/" className="logo">Eshop
                 </Link>
             </h1>
         </div>
@@ -20,7 +20,7 @@ const Header = (cartItems) =>{
 
             <ul>
                 <li>
-                    <Link to="/signup">Signup</Link>
+                    <Link to="/register">Register</Link>
                 </li>
             </ul>
             <ul>
@@ -28,6 +28,9 @@ const Header = (cartItems) =>{
                     <Link to="/wishlist">Wishlist</Link>
                 </li>
             </ul>
+
+            
+            
 
             <ul>
                 <li>

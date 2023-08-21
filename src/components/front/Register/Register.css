@@ -1,0 +1,60 @@
+/* Register.css */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 87vh;
+    background-color: #f5f5f5;
+  }
+  
+  .register-card {
+    width: 400px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .register-card-body {
+    padding: 20px;
+  }
+  
+  .register-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .register-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .register-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  /* Register.css */
+
+/* ... Other styles ... */
+
+.register-button {
+    width: 100%;
+    background-color: #142c64; /* Set button background color to black */
+    color: white; /* Set button text color */
+    font-weight: bold; /* Apply bold font weight to button text */
+    border: none; /* Remove button border */
+    padding: 10px; /* Add padding for better visual appearance */
+    border-radius: 5px; /* Apply rounded corners */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+    transition: background-color 0.2s, color 0.2s; /* Add smooth transition effect */
+  }
+  
+  .register-button:hover {
+    background-color: black; /* Darken the background color on hover */
+  }

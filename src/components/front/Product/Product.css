@@ -12,7 +12,24 @@
   z-index: 0;
   background-color: #e9ecea;
 } 
+.content-container .product-button.black-button {
+  background-color:#142c64;
+  color: white;
+  border: none;
+}
+.content-container .product-button.black-button1 {
+  background-color:#b30000;
+  color: white;
+  border: none;
+}
+/* Apply hover styles */
+.content-container .product-button.black-button:hover {
+  background-color: #014b16;
+}
 
+.content-container .product-button.black-button1:hover {
+  background-color: #006b00;
+}
 
 /* Other styles remain unchanged */
 
@@ -87,7 +104,7 @@
 }
 .product-add-button:hover
 {
-    background-color: brown;
+    background-color: blue;
 }
 .product-add-button:active
 {

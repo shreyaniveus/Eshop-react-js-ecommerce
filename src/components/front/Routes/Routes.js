@@ -5,12 +5,14 @@ import Signup from '../Signup/Signup';
 import Cart from '../Cart/Cart';
 import Wishlist from '../Wishlist/Wishlist';
 import Checkout from '../../../Checkout';
+import Register from '../Register/Register';
 
 const Routes = ({
   productItems,
   cartItems,
   wishlistItems,
   handleRemoveProduct,
+  handleRemoveFromWishlist, // Add this prop
   handleAddProduct1,
   handleAddProduct,
   handleAddToCart,
@@ -30,9 +32,15 @@ const Routes = ({
         <Route path="/signup" exact>
           <Signup />
         </Route>
+       
+        <Route path="/register" exact>
+          <Register />
+        </Route>
+       
         <Route path="/wishlist" exact>
           <Wishlist
             wishlistItems={wishlistItems}
+            handleRemoveFromWishlist={handleRemoveFromWishlist} // Pass the function to remove from wishlist
             handleAddProduct1={handleAddProduct1}
             handleAddToCart={handleAddToCart}
             handleCartClearance={handleCartClearance}

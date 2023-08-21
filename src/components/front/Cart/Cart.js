@@ -1,26 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance }) => {
   const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
-  const productItemStyle1 = {
-    padding: '0px',
-    marginTop: '10px',
-    paddingLeft: '0px',
-  };
-  const productItemStyle2 = {
-    padding: '0px',
-    marginTop: '10px',
-    paddingLeft: '0px',
-  };
-  const productstyle3 = {
-    paddingLeft: '10px',
-  };
-  const productstyle4 = {
-    paddingLeft: '50px',
-    paddingRight: '10px', // Add right padding to the Order button
-  };
 
   // Use the useHistory hook to get access to the history object
   const history = useHistory();
@@ -47,7 +30,7 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
       });
     } else {
       // Display a popup for guests
-      const isConfirmed = window.confirm('You are currently a guest user. Please sign up to place this order.');
+      const isConfirmed = window.confirm('To proceed with placing this order, please sign up. If you are not registered on this website, kindly register and then proceed with the sign-up process.');
       if (isConfirmed) {
         history.push({
           pathname: '/signup',
@@ -61,9 +44,9 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
   };
 
   return (
-    <>
-      <div className="container d-flex justify-content-center" style={productItemStyle1}>
-        <div className="card cart-card" style={productItemStyle2}>
+    <div className="cart-container">
+      <div className="container-fluid d-flex justify-content-center">
+        <div className="card cart-card">
           <h2 className="card-header cart-items-header text-center">Cart Items</h2>
           <div className="clear-cart d-flex justify-content-end">
             {cartItems.length >= 1 && (
@@ -117,7 +100,7 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClea
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

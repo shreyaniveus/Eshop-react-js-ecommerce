@@ -4,13 +4,18 @@ import Header from "./components/front/Header/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Routes from "./components/front/Routes/Routes";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"; // Import your custom CSS file
+import "./App.css"; 
+
+// imported necessary library files 
 
 const App = () => {
   const { productItems } = data;
   
   const [cartItems, setCartItems] = useState([]);
   const [wishlistItems, setWishlistItems] = useState([]);
+
+  //function used to add items to cart
+
   const handleAddToCart = (item) => {
     console.log("Adding item to cart:", item);
     // Add the item to the cartItems state
@@ -18,8 +23,7 @@ const App = () => {
   };
 
  
- 
-
+//managing cart items
 const handleAddProduct= (product)=>{
 const ProductEXist = cartItems.find((item)=> item.id===product.id);
 if(ProductEXist)
@@ -70,7 +74,11 @@ const handleAddProduct1= (product)=>{
 
 const handleCartClearance = () => {
   setCartItems([]);
+  //sets the cartItems state to an empty array.
 }
+const handleRemoveFromWishlist = (product) => {
+  setWishlistItems(wishlistItems.filter((item) => item.id !== product.id));
+};
 
 return (
   <div className="app-container">
@@ -86,6 +94,7 @@ return (
           handleAddProduct1={handleAddProduct1}
           handleAddProduct={handleAddProduct}
           handleCartClearance={handleCartClearance}
+          handleRemoveFromWishlist={handleRemoveFromWishlist}
         />
         
       </div>
